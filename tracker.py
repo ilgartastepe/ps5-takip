@@ -462,7 +462,9 @@ def esc(s: str) -> str:
 
 def format_deal(d: Deal, v: Verdict, previous: float | None = None) -> str:
     store = TRUSTED_STORES[v.store][0] if v.store else "Belirlenemedi"
-    head = "🎮 <b>PS5 Slim fırsatı</b>" if v.decision == "pass" else "⚠️ <b>PS5 Slim fırsatı — DOĞRULANMADI</b>"
+    price_txt = f"${v.price:.2f}" if v.price is not None else "Fiyat ?"
+    head = (f"💰 <b>{price_txt}</b> — 🎮 <b>PS5 Slim fırsatı</b>" if v.decision == "pass"
+            else f"💰 <b>{price_txt}</b> — ⚠️ <b>PS5 Slim fırsatı — DOĞRULANMADI</b>")
     if previous is not None:
         head += f"\n📉 Fiyat düştü: ${previous:.2f} → ${v.price:.2f}"
     model = v.edition + (f", {v.storage}" if v.storage else "")
