@@ -1,6 +1,6 @@
 # PS5 Slim fırsat takipçisi
 
-GitHub Actions üzerinde 15 dakikada bir çalışır, 500 $ (vergisiz) altındaki **sıfır PS5 Slim**
+15 dakikada bir GitHub Actions üzerinde çalışır (tetikleyici: cron-job.org, yedek: GitHub'ın kendi zamanlaması), 500 $ (vergisiz) altındaki **sıfır PS5 Slim**
 fırsatlarını güvenilir mağazalarla sınırlı olarak bulur ve Telegram'dan Türkçe bildirir.
 
 ## Kaynaklar (GitHub sunucularından erişim testi, 14.11.2026)
@@ -33,7 +33,11 @@ Testi tekrar çalıştırmak için: Actions → **Kaynak erisim testi** → Run 
 ## Kullanım
 
 - **Durdurmak:** GitHub'da depo → Actions → soldan *PS5 Slim takip* → sağ üstte `...` → **Disable workflow**.
-  (Yeniden başlatmak için aynı yerden *Enable workflow*.) Terminalden: `gh workflow disable takip.yml -R <kullanıcı>/ps5-takip`
+  (Yeniden başlatmak için aynı yerden *Enable workflow*.) İstersen cron-job.org'daki *PS5 takip* işini de kapat.
+- **Zamanlama:** GitHub'ın kendi zamanlayıcısı bu depoda tetiklenmediği için çalışmaları cron-job.org başlatıyor
+  (`POST .../actions/workflows/takip.yml/dispatches`, sadece bu depoda Actions yazma izni olan anahtar,
+  bitiş 15.01.2027). Anahtar biterse sistem durur; uzatmak için GitHub'da yeni anahtar oluşturup cron-job.org'daki
+  `Authorization` başlığını güncelle.
 - **Fiyat eşiğini değiştirmek:** depo → Settings → Secrets and variables → Actions → **Variables** sekmesi →
   `PRICE_LIMIT` değerini düzenle (ör. `450`). Kod değişmez, bir sonraki çalışmadan itibaren geçerli.
 - **Test mesajı:** Actions → *PS5 Slim takip* → Run workflow → mode: `test-message`.
