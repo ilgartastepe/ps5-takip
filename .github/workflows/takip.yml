@@ -2,7 +2,7 @@ name: PS5 Slim takip
 
 on:
   schedule:
-    - cron: "*/15 * * * *"     # 15 dakikada bir (GitHub yoğunken birkaç dakika gecikebilir)
+    - cron: "7,22,37,52 * * * *"   # 15 dakikada bir; saat başı yoğunluğundan kaçınmak için kaydırıldı
   workflow_dispatch:
     inputs:
       mode:
