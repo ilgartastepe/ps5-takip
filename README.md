@@ -38,6 +38,8 @@ Testi tekrar çalıştırmak için: Actions → **Kaynak erisim testi** → Run 
   (`POST .../actions/workflows/takip.yml/dispatches`, sadece bu depoda Actions yazma izni olan anahtar,
   bitiş 15.01.2027). Anahtar biterse sistem durur; uzatmak için GitHub'da yeni anahtar oluşturup cron-job.org'daki
   `Authorization` başlığını güncelle.
+- **Sıklık sınırı:** İki tetikleyici (cron-job.org ve GitHub) üst üste gelse bile kaynaklara en fazla ~15 dakikada bir
+  gidilir: son kontrolden 12 dakika geçmediyse çalışma hiç istek atmadan biter (`MIN_INTERVAL_MIN`, `tracker.py`).
 - **Fiyat eşiğini değiştirmek:** depo → Settings → Secrets and variables → Actions → **Variables** sekmesi →
   `PRICE_LIMIT` değerini düzenle (ör. `450`). Kod değişmez, bir sonraki çalışmadan itibaren geçerli.
 - **Test mesajı:** Actions → *PS5 Slim takip* → Run workflow → mode: `test-message`.
