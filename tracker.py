@@ -605,6 +605,11 @@ def main() -> int:
     deals = run_sources(state)
     n = process(state, deals)
     maybe_heartbeat(state, force=(mode == "heartbeat"))
+    # /durum komutu (Cloudflare botu) bu özeti okur
+    state["price_limit"] = price_limit()
+    state["last_run"] = {"ts": now_iso(), "deals": len(deals), "sent": n,
+                         "sources": {k: ("ok" if v["count"] == 0 else f"hata x{v['count']}: {v['last']}")
+                                     for k, v in state["errors"].items()}}
     save_state(state)
     print(f"Bitti: {len(deals)} kayıt incelendi, {n} bildirim gönderildi.")
     return 0

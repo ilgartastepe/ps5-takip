@@ -1,0 +1,11 @@
+name = "ps5-takip-bot"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+# Gizli değerler (kodda/depoda YOK, `wrangler secret put` ile girilir):
+#   TELEGRAM_BOT_TOKEN  — BotFather anahtarı
+#   CHAT_ID             — sadece bu sohbete cevap verilir
+#   WEBHOOK_SECRET      — Telegram'ın isteklerini doğrulamak için rastgele değer
+[vars]
+STATE_URL = "https://raw.githubusercontent.com/ilgartastepe/ps5-takip/main/state.json"
