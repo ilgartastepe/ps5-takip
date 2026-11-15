@@ -42,6 +42,11 @@ Testi tekrar çalıştırmak için: Actions → **Kaynak erisim testi** → Run 
   gidilir: son kontrolden 12 dakika geçmediyse çalışma hiç istek atmadan biter (`MIN_INTERVAL_MIN`, `tracker.py`).
 - **Fiyat eşiğini değiştirmek:** depo → Settings → Secrets and variables → Actions → **Variables** sekmesi →
   `PRICE_LIMIT` değerini düzenle (ör. `450`). Kod değişmez, bir sonraki çalışmadan itibaren geçerli.
+- **/durum komutu:** Telegram'da bota `/durum` yaz; anında sistem durumu, son kontrol zamanı ve en düşük fiyat gelir.
+  Cloudflare Worker olarak çalışır (`bot/`, adres: ps5-takip-bot.rockhill.workers.dev), sadece kayıtlı sohbete cevap verir.
+  Gizli değerler (`TELEGRAM_BOT_TOKEN`, `CHAT_ID`, `WEBHOOK_SECRET`) Cloudflare'de durur. Kapatmak için:
+  Cloudflare panosu → Workers & Pages → *ps5-takip-bot* → Settings → Delete (fırsat bildirimleri etkilenmez).
+  Yerel test: `node bot/test-worker.mjs`
 - **Test mesajı:** Actions → *PS5 Slim takip* → Run workflow → mode: `test-message`.
 - **Filtre testleri (yerelde):** `python3 -m unittest discover -s tests -v`
 
