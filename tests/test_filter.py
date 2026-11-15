@@ -5,7 +5,7 @@ import unittest
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from datetime import datetime, timedelta, timezone  # noqa: E402
-from tracker import Deal, evaluate, extract_price, is_recent, process  # noqa: E402
+from tracker import Deal, evaluate, extract_price, is_recent, process, too_soon  # noqa: E402
 
 
 def sd(title, hint="", text=""):
@@ -122,6 +122,12 @@ class ElenmesiGerekenler(unittest.TestCase):
 
 
 class Yardimcilar(unittest.TestCase):
+    def test_sik_calisma_atlanir(self):
+        now = datetime.now(timezone.utc)
+        self.assertFalse(too_soon({}, now))
+        self.assertTrue(too_soon({"last_check": (now - timedelta(minutes=5)).isoformat()}, now))
+        self.assertFalse(too_soon({"last_check": (now - timedelta(minutes=14)).isoformat()}, now))
+
     def test_fiyat_ayiklama(self):
         self.assertEqual(extract_price("$100 off PS5 Slim, now $399"), 399)
         self.assertEqual(extract_price("Save $150 on PS5 Slim Console $449.99"), 449.99)

@@ -31,6 +31,7 @@ HEARTBEAT_HOUR = 9          # her gün yerel saatle 09:00'dan sonraki ilk çalı
 ERROR_ALERT_AFTER = 3       # bir kaynak üst üste bu kadar hata verirse bildir
 MIN_CONSOLE_PRICE = 200     # bunun altı konsol değil (oyun/aksesuar) kabul edilir
 MAX_AGE_DAYS = 4            # fırsat akışlarında bundan eski ilanlar yok sayılır
+MIN_INTERVAL_MIN = 12       # iki kontrol arasında en az bu kadar dakika (iki tetikleyici aynı anda çalışırsa)
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/130.0 Safari/537.36")
 
@@ -576,6 +577,15 @@ def maybe_heartbeat(state: dict, send=send_telegram, force: bool = False) -> Non
         state["last_heartbeat"] = today
 
 
+def too_soon(state: dict, now: datetime | None = None) -> bool:
+    """Son kontrolden bu yana MIN_INTERVAL_MIN dakika geçmediyse True (kaynaklara istek atılmaz)."""
+    last = state.get("last_check")
+    if not last:
+        return False
+    now = now or datetime.now(timezone.utc)
+    return now - datetime.fromisoformat(last) < timedelta(minutes=MIN_INTERVAL_MIN)
+
+
 def main() -> int:
     mode = sys.argv[1] if len(sys.argv) > 1 else "run"
     if mode == "test-message":
@@ -588,6 +598,10 @@ def main() -> int:
         print("Test mesajı gönderildi." if ok else "Test mesajı GÖNDERİLEMEDİ.")
         return 0 if ok else 1
     state = load_state()
+    if mode == "run" and too_soon(state):
+        print(f"Son kontrol {state['last_check']} — {MIN_INTERVAL_MIN} dakikadan yeni, bu çalışma atlandı.")
+        return 0
+    state["last_check"] = now_iso()
     deals = run_sources(state)
     n = process(state, deals)
     maybe_heartbeat(state, force=(mode == "heartbeat"))

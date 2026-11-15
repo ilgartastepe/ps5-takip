@@ -24,6 +24,8 @@ jobs:
     timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main   # sırada bekleyen çalışma da en güncel durumu (state.json) görsün
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
