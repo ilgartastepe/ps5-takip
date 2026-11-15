@@ -16,7 +16,7 @@
    "last": ""
   }
  },
- "last_check": "2026-11-15T06:45:22.000802+00:00",
+ "last_check": "2026-11-15T07:00:24.479019+00:00",
  "last_heartbeat": "2026-11-14",
  "last_run": {
   "deals": 21,
@@ -26,7 +26,7 @@
    "PlayStation Direct": "ok",
    "Slickdeals": "ok"
   },
-  "ts": "2026-11-15T06:45:25.975646+00:00"
+  "ts": "2026-11-15T07:00:27.819831+00:00"
  },
  "notified": {},
  "observations": [
@@ -890,6 +890,27 @@
    "store": "PlayStation Direct",
    "title": "PlayStation 5 Console (Slim) – Digital Edition 825 GB",
    "ts": "2026-11-15T06:45:25.975499+00:00"
+  },
+  {
+   "link": "https://slickdeals.net/click?sdtid=20288853&sdfid=9&lno=6&trd=Newegg&pv=&au=&u3=M8HwHEB8kvyZbUwTV5lc02Mbb8htcJbeUpW71RuLVzx6cbd5EGxN9h59knNkJtPcgz3-81_VdMHu5s-xHLQY0Dm5HJiM9KHXN4HwWrnhuayrPiWAhZNqG78c2MHm2d0mwrnOcygJguHeiS_OVqs",
+   "price": 1038.99,
+   "store": "Newegg",
+   "title": "Samsung 990 Pro 2TB NVMe M.2 2280 PCIe 4.0 SSD w/ Heatsink + Sony PlayStation 5 Slim Digital Edition 825GB Console $1038.99 + Free Shipping",
+   "ts": "2026-11-15T07:00:27.816128+00:00"
+  },
+  {
+   "link": "https://direct.playstation.com/en-us/buy-consoles/playstation5-console-1-tb",
+   "price": 649.0,
+   "store": "PlayStation Direct",
+   "title": "PlayStation 5 Console (Slim) – Disc Edition 1 TB",
+   "ts": "2026-11-15T07:00:27.819431+00:00"
+  },
+  {
+   "link": "https://direct.playstation.com/en-us/buy-consoles/playstation5-digital-edition-console-825-gb",
+   "price": 599.0,
+   "store": "PlayStation Direct",
+   "title": "PlayStation 5 Console (Slim) – Digital Edition 825 GB",
+   "ts": "2026-11-15T07:00:27.819695+00:00"
   }
  ],
  "price_limit": 500.0,
