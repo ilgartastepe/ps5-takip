@@ -36,6 +36,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           PRICE_LIMIT: ${{ vars.PRICE_LIMIT }}
+          PAUSED: ${{ vars.PAUSED }}
         run: python tracker.py "${{ inputs.mode || 'run' }}"
       - name: Durumu kaydet
         if: always()

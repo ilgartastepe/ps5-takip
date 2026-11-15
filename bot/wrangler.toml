@@ -7,5 +7,7 @@ workers_dev = true
 #   TELEGRAM_BOT_TOKEN  — BotFather anahtarı
 #   CHAT_ID             — sadece bu sohbete cevap verilir
 #   WEBHOOK_SECRET      — Telegram'ın isteklerini doğrulamak için rastgele değer
+#   GITHUB_TOKEN        — sadece bu depo: Actions + Variables okuma/yazma (/esik, /kontrol, /durdur, /devam)
 [vars]
+REPO = "ilgartastepe/ps5-takip"
 STATE_URL = "https://raw.githubusercontent.com/ilgartastepe/ps5-takip/main/state.json"

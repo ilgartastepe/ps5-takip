@@ -597,6 +597,9 @@ def main() -> int:
                            + format_deal(sample, evaluate(sample)))
         print("Test mesajı gönderildi." if ok else "Test mesajı GÖNDERİLEMEDİ.")
         return 0 if ok else 1
+    if os.environ.get("PAUSED", "").strip().lower() in ("1", "true", "evet", "yes"):
+        print("Sistem /durdur ile duraklatılmış (PAUSED=true); kontrol yapılmadı, mesaj gönderilmedi.")
+        return 0
     state = load_state()
     if mode == "run" and too_soon(state):
         print(f"Son kontrol {state['last_check']} — {MIN_INTERVAL_MIN} dakikadan yeni, bu çalışma atlandı.")
