@@ -16,7 +16,7 @@
    "last": ""
   }
  },
- "last_check": "2026-11-26T16:00:26.106055+00:00",
+ "last_check": "2026-11-26T16:15:16.767050+00:00",
  "last_heartbeat": "2026-11-26",
  "last_run": {
   "deals": 28,
@@ -26,7 +26,7 @@
    "PlayStation Direct": "ok",
    "Slickdeals": "ok"
   },
-  "ts": "2026-11-26T16:00:31.665157+00:00"
+  "ts": "2026-11-26T16:15:22.316945+00:00"
  },
  "notified": {},
  "observations": [
@@ -1359,6 +1359,20 @@
    "store": "PlayStation Direct",
    "title": "PlayStation 5 Console (Slim) – Digital Edition 825 GB",
    "ts": "2026-11-26T16:00:31.665051+00:00"
+  },
+  {
+   "link": "https://direct.playstation.com/en-us/buy-consoles/playstation5-console-1-tb",
+   "price": 649.0,
+   "store": "PlayStation Direct",
+   "title": "PlayStation 5 Console (Slim) – Disc Edition 1 TB [stokta yok]",
+   "ts": "2026-11-26T16:15:22.316548+00:00"
+  },
+  {
+   "link": "https://direct.playstation.com/en-us/buy-consoles/playstation5-digital-edition-console-825-gb",
+   "price": 599.0,
+   "store": "PlayStation Direct",
+   "title": "PlayStation 5 Console (Slim) – Digital Edition 825 GB",
+   "ts": "2026-11-26T16:15:22.316811+00:00"
   }
  ],
  "price_limit": 500.0,
